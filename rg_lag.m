@@ -1,0 +1,11 @@
+function [ngc,dgc,k]=rg_lag(ng0,dg0,kk,s1,a)
+ngv=polyval(ng0,s1);
+dgv=polyval(dg0,s1);
+g=ngv/dgv;
+k=abs(g);
+beta=k/kk;
+[kosi1,wn1]=s2kw(s1);
+zc=-wn1*sin(a*pi/180)/sin(pi-atan(sqrt(1-kosi1^2)/kosi1)-(a*pi/180));
+pc=beta*zc;
+ngc=beta*[1 -zc];
+dgc=[1 -pc];
