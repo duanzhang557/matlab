@@ -4,9 +4,9 @@ y=ScopeData1(:,2);
 plot(x,y)
 [mp,ind]=max(y)
 tp=x(ind)
-num=length(x);%³¤¶È
-yss=y(num)%ÎÈ¶¨Öµ
-pos=100*(mp-yss)/yss%³¬µ÷Á¿
+num=length(x);%é•¿åº¦
+yss=y(num)%ç¨³å®šå€¼
+pos=100*(mp-yss)/yss%è¶…è°ƒé‡
 
 for i=1:1:num
     if y(i)>yss
@@ -17,7 +17,7 @@ end
 
 for i=i:num
  if y(i)>=(1+delta)*yss|y(i)<=(1-delta)*yss
-    maxum=x(i);        %µ÷½ÚÊ±¼ä,2%µÄÎó²î
+    maxum=x(i);        %è°ƒèŠ‚æ—¶é—´,2%çš„è¯¯å·®
  end
 end
 ts=max(maxum)
