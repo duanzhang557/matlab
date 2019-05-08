@@ -32,8 +32,8 @@ a=[100,30,67,80,1,75,45]
 % num=conv([1 0 2],[1 5 4])
 % den=[1 0 1 1]
 % [q,r]=deconv(num,den)
-% disp(['ÉÌ:',poly2str(q,'x')]),
-% disp(['ÓàÊ½:',poly2str(r,'x')])
+% disp(['Ã‰ÃŒ:',poly2str(q,'x')]),
+% disp(['Ã“Ã ÃŠÂ½:',poly2str(r,'x')])
 % 
 % 2.6
 % a=rand(3)
