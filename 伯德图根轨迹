@@ -1,0 +1,68 @@
+各种正弦函数的画图
+wn=1;zetas=[0:0.1:1,2,3,5];t=0:0.1:12;
+ hold on;
+ for i=1:length(zetas)
+     gc=tf(wn^2,[1,2*zetas(i)*wn,wn^2]);
+     step(gc,t)
+ end
+ grid on
+ hold on
+
+9.1.3
+ sys=tf([1],[1 0.6 1]);
+ [y,t]=step(sys);
+ plot(t,y)
+ [pos,tr,ts,tp]=stepchar(sys,0.02)
+ hold on
+ range=[0.98*ones(length(t),1),1.02*ones(length(t),1),ones(length(t),1)]
+ plot(t,range)
+ grid on
+
+ 9.1.5
+ sys=tf([16],[1,3,16]);
+ [u,t]=gensig('square',8,32,0.01);
+ lsim(sys,u,t)
+ grid on
+
+ 9.2
+ sys=tf([1],[1 4 5 0]);
+ rlocus(sys)
+ [x,y]=ginput(3);
+ p=x+i*y
+ k=rlocfind(sys,p)
+
+
+9.3
+ g=tf(1000,conv([1,3,2],[1,5]))
+ nyquist(g)
+ axis('square')
+ g_close=feedback(g,1)
+ roots(g_close.den{1})
+
+ 9.2
+ sys=tf([5 25 30],[1 6 10 8]);
+ impulse(sys)
+ hold on
+ step(sys)
+绘制根轨迹，图
+9.1
+sys=tf([2 5 1],[1 2 3])
+rlocus(sys)
+ nyquist(sys)
+  bode(sys)
+
+9.3计算阶跃，脉冲输入的响应
+ sys=tf(36,[1 8.2 36])
+ subplot(1,2,1)
+ step(sys)
+ subplot(1,2,2)
+ impulse(sys)
+
+ 9.4已知系统的特征方程，使用劳斯判断是否稳定
+ num=[1 2 8 12 20 16 16];
+ [rtab,meg]=routh(num)
+
+9.5  计算赋值 相角余量 
+ sys=tf([7 35],conv([1 10 0 0],[1 1]))
+ [Gm,Pm,Wcg,Wcp]=margin(sys)
+
