@@ -1,0 +1,18 @@
+function [pos,tr,ts,tp]=stepchar(g0,delta)
+[y,t]=step(g0);
+[mp,ind]=max(y);
+dimt=length(t);
+yss=y(dimt);
+pos=100*(mp-yss)/yss;
+tp=t(ind);
+for i=1:dimt
+    if y(i)>1
+        tr=t(i);
+        break;
+    end
+end
+for i=1:length(y)
+    if y(i)<=(1-delta)*yss|y(i)>=(1+delta)*yss
+        ts=t(i);
+    end
+end
